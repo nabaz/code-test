@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <div style="text-align:center">
+        <form [formGroup]="addNewForm">
+          <input formControlName="value" type="number" id="value" name="value" placeholder="add number" type="text"
+            name="number" [max]="100" required/>
+            
+          <input (click)="add()" type="submit" value="add new" class="btn btn-outline-primary">
+        </form>
+        <ul  class="header">
+          <li>Created At</li>
+          <li>Value</li>
+          <li>Number</li>
+          <li>Occurences</li>
+        </ul>
+        <ul  *ngFor="let difference of differences">
+          <li>{{difference.created_at}}</li>
+          <li>{{difference.value}}</li>
+          <li>{{difference.number}}</li>
+          <li>{{difference.occurences}}</li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
