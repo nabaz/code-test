@@ -13,14 +13,12 @@ class DifferenceSerializer(serializers.Serializer):
         model = Difference
 
     def create(self, validated_data):
-        # import pdb; pdb.set_trace()
         number = validated_data.pop('value')
         value = self.square_of_sum(number) - self.sum_of_square(number)
         occurences = self.occurences_count(number)
         created_at = datetime.datetime.now()
 
         print(validated_data)
-        # import pdb; pdb.set_trace()
         return Difference.objects.create(value=value, number=number, occurences=occurences)
 
 
@@ -37,7 +35,6 @@ class DifferenceSerializer(serializers.Serializer):
     def occurences_count(self, number):
         count_occurences = 0
         count_result = Difference.objects.filter(number = number).count()
-        # import pdb; pdb.set_trace()
         if count_result > 0 :
             count_occurences = count_result + 1
         else:
