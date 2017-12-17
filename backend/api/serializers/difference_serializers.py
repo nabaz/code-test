@@ -3,7 +3,6 @@ from api.models.difference import Difference
 import datetime
 
 class DifferenceSerializer(serializers.Serializer):
-
     created_at = serializers.CharField(required=False)
     value = serializers.IntegerField()
     number = serializers.IntegerField(required=False)
@@ -25,7 +24,6 @@ class DifferenceSerializer(serializers.Serializer):
     def update(self, instance, validated_data):
         pass
 
-
     def sum_of_square(self, number):
         return sum([i**2 for i in range(1, number+1)])
 
@@ -41,3 +39,11 @@ class DifferenceSerializer(serializers.Serializer):
             count_occurences += 1
 
         return count_occurences
+
+    def validate(self, data):
+        """
+        Check that number between 1-100.
+        """
+        if data['value'] < 1 or data['value'] > 100:
+            raise serializers.ValidationError("number must be between 1-100")
+        return data

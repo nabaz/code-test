@@ -3,9 +3,7 @@
     <div class="col-sm-6 col-sm-offset-3">
       <div style="text-align:center">
         <form [formGroup]="addNewForm">
-          <input formControlName="value" type="number" id="value" name="value" placeholder="add number" type="text"
-            name="number" [max]="100" required/>
-            
+          <input formControlName="value" type="number" id="value" name="value" placeholder="add number" [max]="100" required/>
           <input (click)="add()" type="submit" value="add new" class="btn btn-outline-primary">
         </form>
         <ul  class="header">

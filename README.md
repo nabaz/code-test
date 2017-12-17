@@ -1,6 +1,6 @@
 # code-test
 
-- To Run Django App Go to ./backend and run python install -r requirements.txt
+- To Run Django App Go to ./backend pip install -r requirements.txt from a virtual environment
 - Create .env file in the root folder and set these values:
 
 ```
