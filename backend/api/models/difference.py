@@ -1,8 +1,12 @@
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 class Difference(models.Model):
-    value = models.CharField(max_length=200)
-    number = models.IntegerField()
+    value = models.IntegerField()
+    number = models.IntegerField(validators=[
+            MaxValueValidator(100),
+            MinValueValidator(1)
+        ])
     occurences = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
 
