@@ -18,6 +18,14 @@ python manage.py migrate
 
 ```
 
+## to run django test:
+
+```
+inisde api folder:
+
+python manage.py test ./tests/
+
+```
 # To test Frontend:
 ## go to ./frontend
 ## run this
